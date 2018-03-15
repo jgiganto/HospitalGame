@@ -28,8 +28,7 @@ namespace HospitalGame.Models
           int IDEnfermedad, String Baja, String Eliminado)
         {
             
-                contexto.INSERTARPACIENTES(IDPaciente, Nombre, Apellido, Edad, Reloj, IDEnfermedad, Baja, Eliminado);
-            
+                contexto.INSERTARPACIENTES(IDPaciente, Nombre, Apellido, Edad, Reloj, IDEnfermedad, Baja, Eliminado);            
              
         }
         public List<String> GetPacientes()
@@ -38,7 +37,20 @@ namespace HospitalGame.Models
                            select datos.Apellido;
             return consulta.ToList();
         }
+        public int GetMaximo()
+        {
+            var consulta = from datos in contexto.PACIENTES
+                           select datos.IDPaciente;
 
+            if (consulta.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return consulta.Max() + 1;
+            }
+        }
     }
 }
 

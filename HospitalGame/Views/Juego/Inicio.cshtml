@@ -1,33 +1,99 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Inicio";
 }
 @model List<String>
- <meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Droppable - Default functionality</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 
- 
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- 
-<script>  
-  
-    $(document).ready(function () {
-        setTimeout(clickbutton, 10);
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        function clickbutton() {
-            // simulamos el click del mouse en el boton del formulario
-            $("#timer1").click();
+<style>
+    #draggable {
+        width: 100px;
+        height: 100px;
+        padding: 0.5em;
+        float: left;
+        margin: 10px 10px 10px 0;
+    }
+
+    #droppable {
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+        float: left;
+        margin: 10px;
+    }
+</style>
+<script src="~/js/arrastrar.js"></script>
+<script src="~/js/EnviarAsincrono.js"></script>
+<script src="~/js/CuentaAtras.js"></script>
+<script src="~/js/Random.js"></script>
+<script src="~/js/ClickBoton.js"></script>
+<script>
+
+    //$("#formulario").submit(function () {
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: ('Inicio'),
+    //        data: $(this).serialize(),
+    //        success: function (data) {
+    //            //countdown('countdown1', 0, 5);
+    //            //sleep(1000);
+    //            $("#boton").click();
+    //        }
+    //    })
+    //    return false;
+    //});
+</script>
+
+<script>
+    $(function () {
+        arrastrar();
+    });
+</script>
+
+<script>
+    /* FUNCIONES A ORDENAR---------------------------------------------------------
+     *
+     *  //FUNCIONES RANDOM
+     *
+     *  var i = Math.floor((Math.random() * 100) + 1);
+        var j = Math.floor((Math.random() * 10) + 1);
+        var k = Math.floor((Math.random() * 10) + 1);
+     *
+     function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds) {
+                    break;
+                }
+            }
         }
-       
-               
-        var saludo; var IDPaciente; var Nombre; var Apellido; var Edad; var Reloj;
-        var IDEnfermedad; var Baja; var Eliminado;
-        function countdown (element, minutes, seconds) {
+        --------------ESTO RELLENA LAS CAJAS DEL FORMULARIO Y PULSA ENVIAR
+                        $("#IDPaciente").val(i);
+                        $("#Nombre").val(i);
+                        $("#Apellido").val(i);
+                        $("#Edad").val(i);
+                        $("#Reloj").val(i);
+                        $("#IDEnfermedad").val(i);
+                        $("#Baja").val(i);
+                        $("#Eliminado").val(i);
+                        $("#boton").click();
+----------------------------------------------------------------------------------
+-------------------------LAS VARIABLES DEL FORMULARIO Y MAS-----------------------
+  var saludo; var IDPaciente; var Nombre; var Apellido; var Edad; var Reloj;
+  var IDEnfermedad; var Baja; var Eliminado;
+  -------------------------------------------------------------------------
+  -------------------------FUNCION CUENTA ATRAS----------------------------
+  function countdown(element, minutes, seconds) {
             // Fetch the display element
             var el = document.getElementById(element);
 
@@ -35,18 +101,7 @@
             var interval = setInterval(function () {
                 if (seconds == 0) {
                     if (minutes == 0) {
-                        (el.innerHTML = "STOP!");
-                        var i = Math.floor((Math.random() * 100) + 1);
-                        $("#IDPaciente").val(i) ;
-                        $("#Nombre").val(i);
-                        $("#Apellido").val(i);
-                        $("#Edad").val(i);
-                        $("#Reloj").val(i);
-                        $("#IDEnfermedad").val(i);
-                        $("#Baja").val(i);
-                        $("#Eliminado").val(i);  
-                        $("#boton").click(); 
-                        
+                        (el.innerHTML = "STOP!");//AQUI SE EJECUTA ALGO CUANDO FINALIZA LA CUENTA ATRAS
                         clearInterval(interval);
                         return;
                     } else {
@@ -66,26 +121,50 @@
                 seconds--;
             }, 1000);
         }
+ --------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+     */
+</script>
+<script>
+
+    $(document).ready(function () {
+        var i;
+        setTimeout(clickbutton, 10);
+
+        //function clickbutton() {
+        //    // simulamos el click del mouse en el boton del formulario
+        //    $("#timer1").click(); $("#timer2").click(); $("#timer3").click();
+        //}
+        //clickbutton();
+
         var start1 = document.getElementById('timer1');
         var start2 = document.getElementById('timer2');
         var start3 = document.getElementById('timer3');
-        var i = Math.floor((Math.random() * 1) + 1);
-        var j = Math.floor((Math.random() * 10) + 1);
-        var k = Math.floor((Math.random() * 10) + 1);
+
         start1.onclick = function () {
+            i = Aleatorios(10);
             countdown('countdown1', 0, i);
         }
-
         start2.onclick = function () {
-            countdown('countdown2', 0, j);
+            i = Aleatorios(10);
+            countdown('countdown2', 0, i);
         }
         start3.onclick = function () {
-            countdown('countdown3', 0, k);
+            i = Aleatorios(10); 
+            countdown('countdown3', 0, i);
         }
 
 
     });
 </script>
+
+
 <pruebas>
     @*<script>
 
@@ -100,26 +179,21 @@
         <script>
             /*String saludo, int IDPaciente, String Nombre, String Apellido, int Edad, int Reloj,
             int IDEnfermedad, String Baja, String Eliminado
-
             function timedAlert(msg, timing){
             setTimeout(function(){
             alert(msg);
             }, timing);
             }
-
             function yourFunction(time, counter){
             for (var i = 1; i <= counter; i++) {
             var msg = i, timing = i * time * 1000; //this is in seconds
             timedAlert (msg, timing);
             };
             }
-
             yourFunction(timeInSeconds, counter); // well here are the values of your choice.
-
             setTimeout(function () {
             alert("numero "+i);
             setTimeout(function () {
-
             alert("numero " + i);
             $("#IDPaciente").val(i).delay(2000);
             $("#Nombre").val(i);
@@ -129,38 +203,35 @@
             $("#IDEnfermedad").val(i);
             $("#Baja").val(i);
             $("#Eliminado").val(i);
-
             $("#boton").click();
-
-
-
             }, 1000);
-
             }, 1000);
             */
         </script>*@
 </pruebas>
 
+
+
 <h2>Inicio</h2>
 
-<form method="post" >
+<form method="post" id="formulario" name="formulario">
     Pon algo<br />
     @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
-    IDPaciente <input type="number" name="IDPaciente" id="IDPaciente"/><br />
-    Nombre <input type="text" name="Nombre" id="Nombre"   /><br />
+    IDPaciente <input type="number" name="IDPaciente" id="IDPaciente" /><br />
+    Nombre <input type="text" name="Nombre" id="Nombre" /><br />
     Apellido <input type="text" name="Apellido" id="Apellido" /><br />
-    Edad <input type="number" name="Edad" id="Edad"/><br />
+    Edad <input type="number" name="Edad" id="Edad" /><br />
     Reloj <input type="number" name="Reloj" id="Reloj" /><br />
     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
-    Baja<input type="text" name="Baja" id="Baja"  /><br />
-    Eliminado <input type="text" name="Eliminado"  id="Eliminado" /><br />
-     
+    Baja<input type="text" name="Baja" id="Baja" /><br />
+    Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
+
     <button type="submit" id="boton">Enviar</button>
 </form>
 
- 
 
-   <div id='countdown1'></div>
+
+<div id='countdown1'></div>
 <div id='countdown2'></div>
 <div id='countdown3'></div>
 
@@ -170,36 +241,23 @@
 @if (Model != null)
 {
     <ul>
-        @foreach(var ape in Model)
+        @foreach (var ape in Model)
         {
-        <li>@ape</li>
+            <li>@ape</li>
         }
     </ul>
 }
 
-<h1 > @ViewBag.saludo </h1>
+<h1> @ViewBag.saludo </h1>
 <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
 
 
 
 
- 
+<div id="draggable" class="ui-widget-content">
+    <p>Drag me to my target</p>
+</div>
 
-
-
- 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
+<div id="droppable" class="ui-widget-header">
+    <p>Drop here</p>
+</div>
