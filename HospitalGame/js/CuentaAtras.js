@@ -30,5 +30,5 @@
 
         el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
         seconds--;
-    }, 1000);
+    }, 1000); 
 }
