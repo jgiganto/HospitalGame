@@ -196,10 +196,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="js\arrastrar.js" />
     <Content Include="js\ClickBoton.js" />
+    <Content Include="js\crearusuario2.js" />
     <Content Include="js\crearusuarios.js" />
     <Content Include="js\CrearUsusarios2.js" />
     <Content Include="js\CuentaAtras.js" />
     <Content Include="js\EnviarAsincrono.js" />
+    <Content Include="js\GeneradorNombresDrop.js" />
     <Content Include="js\Random.js" />
     <Content Include="Models\HospitalGame.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
