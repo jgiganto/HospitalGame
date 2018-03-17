@@ -202,6 +202,7 @@
     <Content Include="js\CuentaAtras.js" />
     <Content Include="js\EnviarAsincrono.js" />
     <Content Include="js\GeneradorNombresDrop.js" />
+    <Content Include="js\MostrarPacientes.js" />
     <Content Include="js\Random.js" />
     <Content Include="Models\HospitalGame.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

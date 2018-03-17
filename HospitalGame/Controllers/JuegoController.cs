@@ -9,9 +9,8 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Text;
 using HospitalGame.Models;
 using System.Web.Services.Description;
-
-
-
+using System.Threading.Tasks;
+using System.Collections;
 
 namespace HospitalGame.Controllers
 {
@@ -40,11 +39,14 @@ namespace HospitalGame.Controllers
 
             IDPaciente = modelo.GetMaximo();
             modelo.InsertarPacientes(IDPaciente.GetValueOrDefault(), Nombre, Apellido, Edad, Reloj, IDEnfermedad, Baja, Eliminado);
-            List<string> lista = modelo.GetPacientes();
+            //List<string> lista = modelo.GetPacientes();
+            return View("");
+        }
+        public ActionResult VistaParcial()
+        {
+             List<string> lista = modelo.GetPacientes();
             return View(lista);
         }
-
-     
 
         public ActionResult pruebas()
         {

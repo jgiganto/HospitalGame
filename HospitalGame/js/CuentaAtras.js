@@ -8,12 +8,12 @@ var x = ""; var y = ""; var datos = 0;
 
 
 function countdown(element, minutes, seconds) {
-
+    datos = Aleatorios(50);//2
     nombre = NombresDrop();
     x = PosicionAleatoria();
     y = PosicionAleatoria();
-    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:relative;top:"+x+"px;left:"+y+"px'>";
-    drop += "<p> Drop here</p> </div>"; 
+    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:relative;top:" + x + "px;left:" + y + "px'>";
+    drop += "<p>" + datos + "</p> </div>"; 
     // Fetch the display element
     var el = document.getElementById(element);
     // Set the timer
@@ -22,12 +22,13 @@ function countdown(element, minutes, seconds) {
         interval1 = setInterval(function () {
             if (seconds == 0) {
                 if (minutes == 0) {
+                    clearInterval(interval1); //1
                     (el.innerHTML = "STOP!");//AQUI SE EJECUTA CÓDIGO CUANDO FINALIZA LA CUENTA ATRAS 
-                    $("#dinamico").append(drop);
-                    
+                   
+                    $("#dinamico").append(drop);                    
                     arrastrar();
                    
-                    datos = Aleatorios(50);
+                    
                     $("#IDPaciente").val(datos);
                     $("#Nombre").val(datos);
                     $("#Apellido").val(datos);
@@ -35,11 +36,12 @@ function countdown(element, minutes, seconds) {
                     $("#Reloj").val(datos);
                     $("#IDEnfermedad").val(datos);
                     $("#Baja").val(datos);
-                    $("#Eliminado").val(datos);
-                     
-                    clearInterval(interval1);
-                    $("#boton").click();
-                    $("#timer1").click();
+                    $("#Eliminado").val(datos);  
+                    $("#btnmostrar").click();//3 
+                    $("#boton").click();//4
+                                     
+                    
+                    $("#timer1").click();//5
                    
                     return;
                 } else {

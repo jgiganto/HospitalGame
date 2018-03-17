@@ -1,18 +1,18 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
-@model List<String>
-
+@model  String
+    
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Droppable - Default functionality</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 @*<link rel="stylesheet" href="/resources/demos/style.css">*@
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
+
 
     #draggable {
         width: 100px;
@@ -21,6 +21,7 @@
         float: left;
         margin: 10px 10px 10px 0;
     }
+
     div[id^="droppable"] {
         width: 150px;
         height: 150px;
@@ -28,14 +29,16 @@
         float: left;
         margin: 10px;
     }
-   
 </style>
+
 <script src="~/js/EnviarAsincrono.js"></script>
 <script src="~/js/arrastrar.js"></script>
 <script src="~/js/CuentaAtras.js"></script>
 <script src="~/js/Random.js"></script>
 <script src="~/js/ClickBoton.js"></script>
 <script src="~/js/GeneradorNombresDrop.js"></script>
+<script src="~/js/MostrarPacientes.js"></script>
+
 <script>
 
     //$("#formulario").submit(function () {
@@ -138,20 +141,22 @@
         //    // simulamos el click del mouse en el boton del formulario
         //    $("#timer1").click(); $("#timer2").click(); $("#timer3").click();
         //}
-        //clickbutton();        
+        //clickbutton();
         EnviarAsincrono();
-        
+
         var start1 = document.getElementById('timer1');
         var start2 = document.getElementById('timer2');
         var start3 = document.getElementById('timer3');
         var parar = document.getElementById('detener');
 
+   
+
         start1.onclick = function () {
             i = Aleatorios(2);
             new countdown('countdown1', 0, 3);
-            $("#boton").click();
+           // $("#boton").click();
         }
-      
+
         start2.onclick = function () {
             i = Aleatorios(10);
             new countdown('countdown2', 0, i);
@@ -163,12 +168,10 @@
         parar.onclick = function () {
             clearInterval(interval1); clearInterval(interval2); clearInterval(interval3);
         }
-
-
-
+        MostrarPacientes();     
+       
     });
 </script>
-
 <pruebas>
     @*<script>
 
@@ -213,7 +216,6 @@
             */
         </script>*@
 </pruebas>
-
 <h2>Inicio</h2>
 <form method="post" id="formulario" name="formulario">
     Pon algo<br />
@@ -226,9 +228,8 @@
     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
     Baja<input type="text" name="Baja" id="Baja" /><br />
     Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
-    <button type="submit" id="boton" name="boton">enviar</button>  
+    <button type="submit" id="boton" name="boton">enviar</button>
 </form>
-
 <div id='countdown1'></div>
 <div id='countdown2'></div>
 <div id='countdown3'></div>
@@ -236,30 +237,28 @@
 <input id="timer2" type="button" value="Start timer 2" />
 <input id="timer3" type="button" value="Start timer 3" />
 <input id="detener" type="button" value="Parar relojes" />
-@if (Model != null)
-{
-    <ul>
-        @foreach (var ape in Model)
-        {
-            <li>@ape</li>
-        }
-    </ul>
-}
+<input id="btnmostrar" type="button" value="Mostrar pacientes asinc" />
+
+<div id="divpacientes"></div>
+
 <h1> @ViewBag.saludo </h1>
 <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
-
 <div id="dinamico" style="z-index:-1">
     <div id="draggable" class="ui-widget-content" style="z-index:2">
         <p>Drag me to my target</p>
     </div>
-    @*<div id="droppable" class="ui-widget-header">
-        <p>Drop here</p>
-    </div>*@
 </div>
 
 
 
-
-
-
- 
+@*<div>
+        @if (Model != null)
+        {
+            <ul>
+                @foreach (var ape in Model)
+                {
+                    <li>@ape</li>
+                }
+            </ul>
+        }
+    </div>*@

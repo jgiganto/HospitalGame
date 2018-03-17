@@ -8,8 +8,7 @@
                 //alert("enviado0");
                 //countdown('countdown1', 0, 5);                
                 //sleep(1000);
-                //  $("#boton").click();
-                
+                //  $("#boton").click();                
             }
         })
         return false;
