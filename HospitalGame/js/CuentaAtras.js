@@ -9,10 +9,10 @@ var x = ""; var y = ""; var datos = 0;
 
 function countdown(element, minutes, seconds) {
     datos = Aleatorios(50);//2
-    nombre = NombresDrop();
-    x = PosicionAleatoria();
-    y = PosicionAleatoria();
-    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:relative;top:" + x + "px;left:" + y + "px'>";
+    x = PosicionAleatoriaX(500);
+    y = PosicionAleatoriaY(300);
+    nombre = NombresDrop();   
+    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:absolute;top:" + x + "px;left:" + y + "px'>";
     drop += "<p>" + datos + "</p> </div>"; 
     // Fetch the display element
     var el = document.getElementById(element);
@@ -29,7 +29,7 @@ function countdown(element, minutes, seconds) {
                     arrastrar();
                    
                     
-                    $("#IDPaciente").val(datos);
+                   // $("#IDPaciente").val(datos);
                     $("#Nombre").val(datos);
                     $("#Apellido").val(datos);
                     $("#Edad").val(datos);

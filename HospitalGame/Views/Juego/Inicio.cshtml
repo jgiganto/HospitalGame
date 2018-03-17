@@ -11,26 +11,34 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
 <style>
 
 
     #draggable {
-        width: 100px;
-        height: 100px;
+        width: 40px;
+        height: 40px;
         padding: 0.5em;
-        float: left;
+        float: none;
         margin: 10px 10px 10px 0;
+        background-color:lavenderblush;
     }
 
     div[id^="droppable"] {
-        width: 150px;
-        height: 150px;
+        width: 70px;
+        height: 70px;
         padding: 0.5em;
         float: left;
         margin: 10px;
     }
 </style>
-
+<style>
+    #tablero{
+      background-color:aliceblue;
+    }
+  
+</style>
 <script src="~/js/EnviarAsincrono.js"></script>
 <script src="~/js/arrastrar.js"></script>
 <script src="~/js/CuentaAtras.js"></script>
@@ -217,7 +225,7 @@
         </script>*@
 </pruebas>
 <h2>Inicio</h2>
-<form method="post" id="formulario" name="formulario">
+<form method="post" id="formulario" name="formulario" hidden>
     Pon algo<br />
     @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
     IDPaciente <input type="number" name="IDPaciente" id="IDPaciente" /><br />
@@ -239,15 +247,43 @@
 <input id="detener" type="button" value="Parar relojes" />
 <input id="btnmostrar" type="button" value="Mostrar pacientes asinc" />
 
-<div id="divpacientes"></div>
-
-<h1> @ViewBag.saludo </h1>
-<h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
-<div id="dinamico" style="z-index:-1">
+@*<div id="dinamico" style="z-index:-1">
     <div id="draggable" class="ui-widget-content" style="z-index:2">
-        <p>Drag me to my target</p>
+        <p>MEC</p>
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="row tablero" style="background-color:antiquewhite" name="tablero">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-7" id="dinamico" style="z-index:3">
+            <div id="draggable" class="ui-widget-content" style="z-index:4">
+                <p>MEC</p>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row CONTROLES">
+        <div class="col-sm-12"></div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div id="divpacientes"></div> *@
+
+@*<h1> @ViewBag.saludo </h1>
+<h1 style="color:rebeccapurple">@ViewBag.controlador</h1>*@ @*Muestra la vista parcial*@ 
+
 
 
 
@@ -262,3 +298,4 @@
             </ul>
         }
     </div>*@
+ 

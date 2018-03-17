@@ -1,4 +1,5 @@
 ﻿
+var topex = ""; topey = "";
 function Aleatorios(tope)
     {
         var i = 1;
@@ -6,9 +7,14 @@ function Aleatorios(tope)
     return i;
 }
 
-function PosicionAleatoria() {
-    var i = 0;
-    i = Math.floor((Math.random() * 800) + 1);
-    return i.toString();
+function PosicionAleatoriaX(topex) {
+    var x = 0;
+    i = Math.floor((Math.random() * topex) + 1);
+    return x.toString();
 
+}
+function PosicionAleatoriaY(topey) {
+    var y = 0;
+    y = Math.floor((Math.random() * topey) + 1);
+    return y.toString();
 }
