@@ -1,7 +1,7 @@
 ﻿
 function Aleatorios(tope)
     {
-        var i = 0;
+        var i = 1;
        i = Math.floor((Math.random() * tope) + 1);
     return i;
 }

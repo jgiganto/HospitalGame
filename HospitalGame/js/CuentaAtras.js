@@ -1,7 +1,7 @@
 ﻿
 var interval1; var interval2; var interval3; var a; var b; var c;
 a = false; b = false; c = false; var num = 0; var nombre = ""; 
-var x = ""; var y = "";
+var x = ""; var y = ""; var datos = 0;
 //var desplazamiento = ale
 
 
@@ -26,8 +26,21 @@ function countdown(element, minutes, seconds) {
                     $("#dinamico").append(drop);
                     
                     arrastrar();
-                    clearInterval(interval1);                   
+                   
+                    datos = Aleatorios(50);
+                    $("#IDPaciente").val(datos);
+                    $("#Nombre").val(datos);
+                    $("#Apellido").val(datos);
+                    $("#Edad").val(datos);
+                    $("#Reloj").val(datos);
+                    $("#IDEnfermedad").val(datos);
+                    $("#Baja").val(datos);
+                    $("#Eliminado").val(datos);
+                     
+                    clearInterval(interval1);
+                    $("#boton").click();
                     $("#timer1").click();
+                   
                     return;
                 } else {
                     minutes--;
@@ -45,8 +58,9 @@ function countdown(element, minutes, seconds) {
 
             el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
             seconds--;
-        }, 300);
+        }, 1000);
     }
+    
     if (element == 'countdown2') {
 
         interval2 = setInterval(function () {
