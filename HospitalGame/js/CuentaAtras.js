@@ -32,19 +32,16 @@ function countdown(element, minutes, seconds) {
                    
                     
                    // $("#IDPaciente").val(datos);
-                    $("#Nombre").val(datos);
-                    $("#Apellido").val(datos);
-                    $("#Edad").val(datos);
-                    $("#Reloj").val(datos);
-                    $("#IDEnfermedad").val(datos);
-                    $("#Baja").val(datos);
-                    $("#Eliminado").val(datos);  
-                    $("#btnmostrar").click();//3 
-                    $("#boton").click();//4
-                                     
-                    
-                    $("#timer1").click();//5
-                   
+                    //$("#Nombre").val(datos);
+                    //$("#Apellido").val(datos);
+                    //$("#Edad").val(datos);
+                    //$("#Reloj").val(datos);
+                    //$("#IDEnfermedad").val(datos);
+                    //$("#Baja").val(datos);
+                    //$("#Eliminado").val(datos);  
+                    //$("#btnmostrar").click();//3 
+                    //$("#boton").click();//4     
+                    //$("#timer1").click();//5                   
                     return;
                 } else {
                     minutes--;

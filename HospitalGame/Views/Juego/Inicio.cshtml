@@ -219,7 +219,7 @@
 
         start1.onclick = function () {
             i = Aleatorios(2);
-            new countdown('countdown1', 0, 2);
+            new countdown('countdown1', 0, 60);
             // $("#boton").click();
         }
 
@@ -282,7 +282,7 @@
             */
         </script>*@
 </pruebas>
-<h2>Inicio</h2>
+
 <form method="post" id="formulario" name="formulario" hidden>
     Pon algo<br />
     @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
@@ -332,7 +332,10 @@
     <table class="table table-bordered" style="width:700px;height:900px">
         <tbody>
             <tr>
-                <th class="tg-yw4l" colspan="9"></th>
+                <th class="tg-yw4l" colspan="9" width="1010px" height="70px">
+                    @*reloj*@
+                    <div id='countdown1' align="center" style="font-size:xx-large;color:orangered;"></div>
+                </th>
             </tr>
             <tr>
                 <td class="tg-yw4l" rowspan="6"></td>
@@ -342,8 +345,8 @@
                             <div class="col-sm-2"></div>
                             <div class="col-sm-7" id="dinamico" style="z-index:3">
                                 @*<div id="draggable" class="ui-widget-content" style="z-index:4">
-                                    <p>MEC</p>
-                                </div>*@
+                                <p>MEC</p>
+                            </div>*@
                             </div>
                             <div class="col-sm-3"></div>
                         </div>
@@ -353,46 +356,57 @@
                     </div>
                 </td>
                 <td class="tg-yw4l"></td>
-                <td class="tg-yw4l"><div id='countdown1'></div></td>
-                <td class="tg-yw4l" rowspan="6"></td>
-            </tr>
+                <td class="tg-yw4l" style="text-align:right;height:70px;width:auto">
             <tr>
-                <td class="tg-yw4l" colspan="2" rowspan="5"></td>
-            </tr>
-            <tr></tr>
-            <tr>
-                <td class="tg-rg0h" colspan="5">MEDICINAS</td>
-            </tr>
-            <tr>
-                <td class="tg-yw4l">mas1</td>
-                <td class="tg-yw4l">mas2</td>
-                <td class="tg-yw4l">mas3</td>
-                <td class="tg-yw4l">mas4</td>
-                <td class="tg-yw4l"></td>
-            </tr>
-            <tr>
-                <td class="tg-yw4l" id="medicina1">
-                    <div id="draggable" class="ui-widget-content" style="z-index:4">
-                        <p>MEC</p>
-                    </div>
+                <td></td>
+                <td>
+                   <p style="font-size:xx-large;color:blueviolet;">SCORE</p>                    
+                    <div id="score" style="font-size:xx-large;text-align:right;color:blueviolet;">0</div>
                 </td>
-                <td class="tg-yw4l" id="medicina2">
-                    <div id="draggable2" class="ui-widget-content" style="z-index:4">
-                        <p>MEC</p>
-                    </div>
-                </td>
-                <td class="tg-yw4l" id="medicina3">
-                    <div id="draggable3" class="ui-widget-content" style="z-index:4">
-                        <p>MEC</p>
-                    </div>
-                </td>
-                <td class="tg-yw4l" id="medicina4">
-                    <div id="draggable4" class="ui-widget-content" style="z-index:4">
-                        <p>MEC</p>
-                    </div>
-                </td>
-                <td class="tg-yw4l"></td>
-            </tr>
+            <td class="tg-yw4l" rowspan="6"></td>
+        </tr>
+        <tr>
+            <td class="tg-yw4l" colspan="2" rowspan="5"></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td class="tg-rg0h" colspan="5" style="text-align:center">MEDICINAS</td>
+        </tr>
+        <tr>
+
+            <td class="tg-yw4l">mas1</td>
+            <td class="tg-yw4l">mas2</td>
+            <td class="tg-yw4l">mas3</td>
+            <td class="tg-yw4l">mas4</td>
+            <td class="tg-yw4l"></td>
+
+        </tr>
+        <tr class="table-bordered">
+            <td class="tg-yw4l">
+
+            </td>
+            <td class="tg-yw4l" id="medicina1">
+                <div id="draggable" class="ui-widget-content" style="z-index:4">
+                    <p>MEC</p>
+                </div>
+            </td>
+            <td class="tg-yw4l" id="medicina2">
+                <div id="draggable2" class="ui-widget-content" style="z-index:4">
+                    <p>MEC</p>
+                </div>
+            </td>
+            <td class="tg-yw4l" id="medicina3">
+                <div id="draggable3" class="ui-widget-content" style="z-index:4">
+                    <p>MEC</p>
+                </div>
+            </td>
+            <td class="tg-yw4l" id="medicina4">
+                <div id="draggable4" class="ui-widget-content" style="z-index:4">
+                    <p>MEC</p>
+                </div>
+            </td>
+
+        </tr>
         </tbody>
     </table>
 </div>
