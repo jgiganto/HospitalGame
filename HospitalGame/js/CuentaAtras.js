@@ -1,6 +1,6 @@
 ﻿
 var interval1; var interval2; var interval3; var a; var b; var c;
-a = false; b = false; c = false; var num = 0; var nombre = ""; 
+a = false; b = false; c = false; var num = 0; var nombre = "";
 var x = ""; var y = ""; var datos = 0;
 //var desplazamiento = ale
 
@@ -9,13 +9,13 @@ var x = ""; var y = ""; var datos = 0;
 
 function countdown(element, minutes, seconds) {
     datos = Aleatorios(50);//2
-    x = PosicionAleatoriaX(50,750);
-    y = PosicionAleatoriaY(150,500);
-    
-    
-    nombre = NombresDrop();   
+    x = PosicionAleatoriaX(50, 750);
+    y = PosicionAleatoriaY(150, 500);
+
+
+    nombre = NombresDrop();
     var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:fixed;top:" + y + "px;left:" + x + "px'>";
-    drop += "<p>" + datos + "</p><p>x:" + x + "y:" + y + "</p> </div>"; 
+    drop += "<p>" + datos + "</p><p>x:" + x + "y:" + y + "</p> </div>";
     // Fetch the display element
     var el = document.getElementById(element);
     // Set the timer
@@ -26,22 +26,22 @@ function countdown(element, minutes, seconds) {
                 if (minutes == 0) {
                     clearInterval(interval1); //1
                     (el.innerHTML = "STOP!");//AQUI SE EJECUTA CÓDIGO CUANDO FINALIZA LA CUENTA ATRAS 
-                   
-                    $("#dinamico").append(drop);                    
+
+                    $("#dinamico").append(drop);
                     arrastrar();
-                   
-                    
-                   // $("#IDPaciente").val(datos);
-                    //$("#Nombre").val(datos);
-                    //$("#Apellido").val(datos);
-                    //$("#Edad").val(datos);
-                    //$("#Reloj").val(datos);
-                    //$("#IDEnfermedad").val(datos);
-                    //$("#Baja").val(datos);
-                    //$("#Eliminado").val(datos);  
-                    //$("#btnmostrar").click();//3 
-                    //$("#boton").click();//4     
-                    //$("#timer1").click();//5                   
+
+
+                     $("#IDPaciente").val(datos);
+                    $("#Nombre").val(datos);
+                    $("#Apellido").val(datos);
+                    $("#Edad").val(datos);
+                    $("#Reloj").val(datos);
+                    $("#IDEnfermedad").val(datos);
+                    $("#Baja").val(datos);
+                    $("#Eliminado").val(datos);  
+                    $("#btnmostrar").click();//3 
+                    $("#boton").click();//4     
+                    $("#timer1").click();//5                   
                     return;
                 } else {
                     minutes--;
@@ -56,12 +56,16 @@ function countdown(element, minutes, seconds) {
             }
 
             var second_text = seconds > 1 ? '' : '';
-
+            
+            //if ((seconds % 10) == (EnfermoAleatorio(1,9))) {                
+            //    $("#dinamico").append(drop);                
+            //}
+            
             el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
             seconds--;
-        }, 1000);
+        }, 500);
     }
-    
+
     if (element == 'countdown2') {
 
         interval2 = setInterval(function () {
@@ -124,5 +128,5 @@ function countdown(element, minutes, seconds) {
             seconds--;
         }, 1000);
     }
-   
+
 }

@@ -15,3 +15,6 @@ function PosicionAleatoriaY(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function EnfermoAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
