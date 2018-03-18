@@ -9,13 +9,13 @@ var x = ""; var y = ""; var datos = 0;
 
 function countdown(element, minutes, seconds) {
     datos = Aleatorios(50);//2
-    x = PosicionAleatoriaX(-162,680);
-    y = PosicionAleatoriaY(-10,420);
-  
+    x = PosicionAleatoriaX(50,750);
+    y = PosicionAleatoriaY(150,500);
+    //x = 828; y = 570; 
     
     nombre = NombresDrop();   
-    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:absolute;top:" + x + "px;left:" + y + "px'>";
-    drop += "<p>" + datos + "</p><p>x:" + x + "y: " + y + "</p> </div>"; 
+    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:fixed;top:" + y + "px;left:" + x + "px'>";
+    drop += "<p>" + datos + "</p><p>x:" + x + "y:" + y + "</p> </div>"; 
     // Fetch the display element
     var el = document.getElementById(element);
     // Set the timer
@@ -62,7 +62,7 @@ function countdown(element, minutes, seconds) {
 
             el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
             seconds--;
-        }, 1000);
+        }, 700);
     }
     
     if (element == 'countdown2') {
