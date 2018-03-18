@@ -4,8 +4,10 @@
         drop: function (event, ui) {
             $(this)
                 .addClass("ui-state-highlight")
-                .find("p")
-                .html("Dropped!");
+                //.find("p")
+                .html("TOCAO!")
+                .fadeOut();
+                
         }
     });
 }

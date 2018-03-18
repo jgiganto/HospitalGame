@@ -7,14 +7,11 @@ function Aleatorios(tope)
     return i;
 }
 
-function PosicionAleatoriaX(topex) {
-    var x = 0;
-    i = Math.floor((Math.random() * topex) + 1);
-    return x.toString();
+function PosicionAleatoriaX(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 
 }
-function PosicionAleatoriaY(topey) {
-    var y = 0;
-    y = Math.floor((Math.random() * topey) + 1);
-    return y.toString();
+function PosicionAleatoriaY(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 }
+

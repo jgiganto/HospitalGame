@@ -2,17 +2,76 @@
     ViewBag.Title = "Inicio";
 }
 @model  String
-    
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Droppable - Default functionality</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-@*<link rel="stylesheet" href="/resources/demos/style.css">*@
+@*<link rel="stylesheet" href="/resources/demos/style.css">*@ 
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0px auto;
+    }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 20px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 20px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+
+        .tg .tg-yw4l {
+            vertical-align: top
+        }
+
+        .tg .tg-rg0h {
+            font-size: 12px;
+            text-align: center;
+            vertical-align: top
+        }
+
+    media screen and (max-width: 767px) {
+        .tg
+
+    {
+        width: auto !important;
+    }
+
+    .tg col {
+        width: auto !important;
+    }
+
+    .tg-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: auto 0px;
+    }
+    }
+</style>
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
 <style>
 
 
@@ -22,22 +81,21 @@
         padding: 0.5em;
         float: none;
         margin: 10px 10px 10px 0;
-        background-color:lavenderblush;
+        background-color: lavenderblush;
     }
 
     div[id^="droppable"] {
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
         padding: 0.5em;
         float: left;
         margin: 10px;
     }
 </style>
 <style>
-    #tablero{
-      background-color:aliceblue;
+    #tablero {
+        background-color: aliceblue;
     }
-  
 </style>
 <script src="~/js/EnviarAsincrono.js"></script>
 <script src="~/js/arrastrar.js"></script>
@@ -157,12 +215,12 @@
         var start3 = document.getElementById('timer3');
         var parar = document.getElementById('detener');
 
-   
+
 
         start1.onclick = function () {
             i = Aleatorios(2);
             new countdown('countdown1', 0, 3);
-           // $("#boton").click();
+            // $("#boton").click();
         }
 
         start2.onclick = function () {
@@ -176,8 +234,8 @@
         parar.onclick = function () {
             clearInterval(interval1); clearInterval(interval2); clearInterval(interval3);
         }
-        MostrarPacientes();     
-       
+        MostrarPacientes();
+
     });
 </script>
 <pruebas>
@@ -248,29 +306,80 @@
 <input id="btnmostrar" type="button" value="Mostrar pacientes asinc" />
 
 @*<div id="dinamico" style="z-index:-1">
-    <div id="draggable" class="ui-widget-content" style="z-index:2">
-        <p>MEC</p>
-    </div>
-</div>*@
-
-<div class="container">
-    <div class="row tablero" style="background-color:antiquewhite" name="tablero">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-7" id="dinamico" style="z-index:3">
-            <div id="draggable" class="ui-widget-content" style="z-index:4">
-                <p>MEC</p>
-            </div>
+        <div id="draggable" class="ui-widget-content" style="z-index:2">
+            <p>MEC</p>
         </div>
-        <div class="col-sm-3"></div>
-    </div>
-    <div class="row CONTROLES">
-        <div class="col-sm-12"></div>
-    </div>
+    </div>*@
+
+@*<div class="container">
+        <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7" id="dinamico" style="z-index:3">
+                <div id="draggable" class="ui-widget-content" style="z-index:4">
+                    <p>MEC</p>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row CONTROLES">
+            <div class="col-sm-12"></div>
+        </div>
+    </div>*@
+
+
+
+<div class="tg-wrap">
+    <table class="table table-bordered" style="width:700px;height:900px">
+        <tbody>
+            <tr>
+                <th class="tg-yw4l" colspan="9"></th>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" rowspan="6"></td>
+                <td class="tg-yw4l" colspan="5" rowspan="3">
+                    <div class="container">
+                        <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-7" id="dinamico" style="z-index:3">
+                                <div id="draggable" class="ui-widget-content" style="z-index:4">
+                                    <p>MEC</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                        <div class="row CONTROLES">
+                            <div class="col-sm-12"></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l">Score</td>
+                <td class="tg-yw4l" rowspan="6"></td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" colspan="2" rowspan="5"></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td class="tg-rg0h" colspan="5">MEDICINAS</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">mas1</td>
+                <td class="tg-yw4l">mas2</td>
+                <td class="tg-yw4l">mas3</td>
+                <td class="tg-yw4l">mas4</td>
+                <td class="tg-yw4l"></td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">med1</td>
+                <td class="tg-yw4l">med2</td>
+                <td class="tg-yw4l">med3</td>
+                <td class="tg-yw4l">med4</td>
+                <td class="tg-yw4l"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-
-
-
 
 
 
@@ -282,20 +391,19 @@
 @*<div id="divpacientes"></div> *@
 
 @*<h1> @ViewBag.saludo </h1>
-<h1 style="color:rebeccapurple">@ViewBag.controlador</h1>*@ @*Muestra la vista parcial*@ 
+    <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>*@ @*Muestra la vista parcial*@
 
 
 
 
-@*<div>
-        @if (Model != null)
-        {
-            <ul>
-                @foreach (var ape in Model)
-                {
-                    <li>@ape</li>
-                }
-            </ul>
-        }
-    </div>*@
- 
+    @*<div>
+            @if (Model != null)
+            {
+                <ul>
+                    @foreach (var ape in Model)
+                    {
+                        <li>@ape</li>
+                    }
+                </ul>
+            }
+        </div>*@
