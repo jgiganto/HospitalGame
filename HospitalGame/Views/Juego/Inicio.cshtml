@@ -75,7 +75,7 @@
 <style>
 
 
-    #draggable {
+    div[id^="draggable"] {
         width: 40px;
         height: 40px;
         padding: 0.5em;
@@ -341,9 +341,9 @@
                         <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-7" id="dinamico" style="z-index:3">
-                                <div id="draggable" class="ui-widget-content" style="z-index:4">
+                                @*<div id="draggable" class="ui-widget-content" style="z-index:4">
                                     <p>MEC</p>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="col-sm-3"></div>
                         </div>
@@ -371,10 +371,26 @@
                 <td class="tg-yw4l"></td>
             </tr>
             <tr>
-                <td class="tg-yw4l">med1</td>
-                <td class="tg-yw4l">med2</td>
-                <td class="tg-yw4l">med3</td>
-                <td class="tg-yw4l">med4</td>
+                <td class="tg-yw4l" id="medicina1">
+                    <div id="draggable" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+                <td class="tg-yw4l" id="medicina2">
+                    <div id="draggable2" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+                <td class="tg-yw4l" id="medicina3">
+                    <div id="draggable3" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+                <td class="tg-yw4l" id="medicina4">
+                    <div id="draggable4" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
                 <td class="tg-yw4l"></td>
             </tr>
         </tbody>

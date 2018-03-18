@@ -11,7 +11,7 @@ function countdown(element, minutes, seconds) {
     datos = Aleatorios(50);//2
     x = PosicionAleatoriaX(50,750);
     y = PosicionAleatoriaY(150,500);
-    //x = 828; y = 570; 
+    
     
     nombre = NombresDrop();   
     var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:fixed;top:" + y + "px;left:" + x + "px'>";
@@ -62,7 +62,7 @@ function countdown(element, minutes, seconds) {
 
             el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
             seconds--;
-        }, 700);
+        }, 1000);
     }
     
     if (element == 'countdown2') {
