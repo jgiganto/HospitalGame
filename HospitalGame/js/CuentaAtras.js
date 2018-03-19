@@ -3,14 +3,10 @@ var interval1; var interval2; var interval3; var a; var b; var c;
 a = false; b = false; c = false; var num = 0; var nombre = "";
 var x = ""; var y = ""; var datos = 0;
 //var desplazamiento = ale
-
-
-
-
 function countdown(element, minutes, seconds) {
     datos = Aleatorios(50);//2
     x = PosicionAleatoriaX(50, 750);
-    y = PosicionAleatoriaY(150, 500);
+    y = PosicionAleatoriaY(150, 420);
 
 
     nombre = NombresDrop();
@@ -24,10 +20,13 @@ function countdown(element, minutes, seconds) {
         interval1 = setInterval(function () {
             if (seconds == 0) {
                 if (minutes == 0) {
-                    clearInterval(interval1); //1
+                    $("div[id^='droppable']").remove();
+                    clearInterval(interval1);
+                    clearInterval(interval2);//1
+                    
                     (el.innerHTML = "STOP!");//AQUI SE EJECUTA CÓDIGO CUANDO FINALIZA LA CUENTA ATRAS 
 
-                    $("#dinamico").append(drop);
+                    //$("#dinamico").append(drop);
                     arrastrar();
 
 
@@ -39,9 +38,9 @@ function countdown(element, minutes, seconds) {
                     $("#IDEnfermedad").val(datos);
                     $("#Baja").val(datos);
                     $("#Eliminado").val(datos);  
-                    $("#btnmostrar").click();//3 
-                    $("#boton").click();//4     
-                    $("#timer1").click();//5                   
+                    //$("#btnmostrar").click();//3 
+                    //$("#boton").click();//4     
+                    //$("#timer1").click();//5                   
                     return;
                 } else {
                     minutes--;
@@ -57,9 +56,7 @@ function countdown(element, minutes, seconds) {
 
             var second_text = seconds > 1 ? '' : '';
             
-            //if ((seconds % 10) == (EnfermoAleatorio(1,9))) {                
-            //    $("#dinamico").append(drop);                
-            //}
+           
             
             el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
             seconds--;
@@ -71,12 +68,15 @@ function countdown(element, minutes, seconds) {
         interval2 = setInterval(function () {
             if (seconds == 0) {
                 if (minutes == 0) {
-                    (el.innerHTML = "STOP!");//AQUI SE EJECUTA ALGO CUANDO FINALIZA LA CUENTA ATRAS                
-                    clearInterval(interval2); //22:00 Jesús hay que hacer una variable interval por cada reloj captura con un if quien llego
-                    // a cero y que llame a countdown
-                    //alert("dentro");  
-                    //b = true;
-                    //clickbutton(a, b, c)
+                    clearInterval(interval2);
+                    //(el.innerHTML = "STOP!");
+
+                    $("#dinamico").append(drop);
+                    $("div[id^='droppable']").fadeOut(EnfermoAleatorio(4000, 6000), function () {
+                        this.remove();
+                    });
+                    arrastrar();
+                    $("#boton").click();
                     $("#timer2").click();
                     return;
                 } else {

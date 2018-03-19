@@ -1,4 +1,4 @@
-﻿var score = 0;
+﻿
 function arrastrar() {
     $("#draggable").draggable();
     $("#draggable2").draggable();
@@ -41,17 +41,11 @@ function arrastrar() {
                         }
                     });
                 });
-            $("#score").html(score+=100);
+            $("#score").html(SumarScore());
           
              
         }     
     });
-    
-
-   
-        
-        
-    
     
 }
 

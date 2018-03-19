@@ -5,9 +5,9 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>jQuery UI Droppable - Default functionality</title>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-@*<link rel="stylesheet" href="/resources/demos/style.css">*@ 
+@*<link rel="stylesheet" href="/resources/demos/style.css">*@
 <style type="text/css">
     .tg {
         border-collapse: collapse;
@@ -64,15 +64,14 @@
     }
     }
 </style>
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-
 <style>
+
 
 
     div[id^="draggable"] {
@@ -90,13 +89,16 @@
         padding: 0.5em;
         float: left;
         margin: 10px;
+        background-color: darkslateblue;
     }
 </style>
+
 <style>
     #tablero {
         background-color: aliceblue;
     }
 </style>
+
 <script src="~/js/EnviarAsincrono.js"></script>
 <script src="~/js/arrastrar.js"></script>
 <script src="~/js/CuentaAtras.js"></script>
@@ -104,7 +106,7 @@
 <script src="~/js/ClickBoton.js"></script>
 <script src="~/js/GeneradorNombresDrop.js"></script>
 <script src="~/js/MostrarPacientes.js"></script>
-
+<script src="~/js/Score.js"></script>
 <script>
 
     //$("#formulario").submit(function () {
@@ -126,6 +128,7 @@
         arrastrar();
     });
 </script>
+
 <script>
     /* FUNCIONES A ORDENAR---a------------------------------------------------------
      *
@@ -200,7 +203,7 @@
 <script>
 
     $(document).ready(function () {
-        var i;
+        var i; 
         //setTimeout(clickbutton, 10);
 
         //function clickbutton() {
@@ -214,17 +217,37 @@
         var start2 = document.getElementById('timer2');
         var start3 = document.getElementById('timer3');
         var parar = document.getElementById('detener');
+        var empezarpartida = document.getElementById('empezarpartida');
+        var mas1 = document.getElementById('mas1');
+        var mas2 = document.getElementById('mas2');
+        var mas3 = document.getElementById('mas3');
+        var mas4 = document.getElementById('mas4');
 
-
+        mas1.onclick = function () {
+            $("#score").html(RestaScore());
+        }
+        mas2.onclick = function () {
+            $("#score").html(RestaScore());
+        }
+        mas3.onclick = function () {
+            $("#score").html(RestaScore());
+        }
+        mas4.onclick = function () {
+            $("#score").html(RestaScore());
+        }
+        empezarpartida.onclick = function () {
+            $("#timer1").click();
+            $("#timer2").click();
+        }
 
         start1.onclick = function () {
-            i = Aleatorios(2);
-            new countdown('countdown1', 0, 3);
+            //i = Aleatorios(2);
+            new countdown('countdown1', 0, 60);
             // $("#boton").click();
         }
 
         start2.onclick = function () {
-            i = Aleatorios(10);
+            i = Aleatorios(2);
             new countdown('countdown2', 0, i);
         }
         start3.onclick = function () {
@@ -234,6 +257,7 @@
         parar.onclick = function () {
             clearInterval(interval1); clearInterval(interval2); clearInterval(interval3);
         }
+
         MostrarPacientes();
 
     });
@@ -297,119 +321,121 @@
     <button type="submit" id="boton" name="boton">enviar</button>
 </form>
 
-<div id='countdown2'></div>
-<div id='countdown3'></div>
-<input id="timer1" type="button" value="Start timer 1" />
-<input id="timer2" type="button" value="Start timer 2" />
-<input id="timer3" type="button" value="Start timer 3" />
-<input id="detener" type="button" value="Parar relojes" />
-<input id="btnmostrar" type="button" value="Mostrar pacientes asinc" />
-
-@*<div id="dinamico" style="z-index:-1">
-        <div id="draggable" class="ui-widget-content" style="z-index:2">
-            <p>MEC</p>
-        </div>
-    </div>*@
-
-@*<div class="container">
-        <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-7" id="dinamico" style="z-index:3">
-                <div id="draggable" class="ui-widget-content" style="z-index:4">
-                    <p>MEC</p>
-                </div>
-            </div>
-            <div class="col-sm-3"></div>
-        </div>
-        <div class="row CONTROLES">
-            <div class="col-sm-12"></div>
-        </div>
-    </div>*@
-
-
+<div id='countdown2' hidden></div>
+<div id='countdown3' hidden></div>
+<input id="timer1" type="button" value="Start timer 1" hidden />
+<input id="timer2" type="button" value="Start timer 2" hidden />
+<input id="timer3" type="button" value="Start timer 3" hidden />
+<input id="detener" type="button" value="Parar relojes" hidden />
+<input id="btnmostrar" type="button" value="Mostrar pacientes asinc" hidden />
 
 <div class="tg-wrap">
-    <table class="table table-bordered" style="width:700px;height:900px">
-        <tbody>
-            <tr>
-                <th class="tg-yw4l" colspan="9" width="1010px" height="70px">
-                    @*reloj*@
-                    <div id='countdown1' align="center" style="font-size:xx-large;color:orangered;"></div>
-                </th>
-            </tr>
-            <tr>
-                <td class="tg-yw4l" rowspan="6"></td>
-                <td class="tg-yw4l" colspan="5" rowspan="3">
-                    <div class="container">
-                        <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
-                            <div class="col-sm-2"></div>
-                            <div class="col-sm-7" id="dinamico" style="z-index:3">
-                                @*<div id="draggable" class="ui-widget-content" style="z-index:4">
-                                <p>MEC</p>
-                            </div>*@
+    <div class="table-responsive">
+        <table class="table table-bordered" style="width:700px;height:900px; background-color:aliceblue">
+            <tbody>
+                <tr>
+                    <th class="tg-yw4l" colspan="9" width="1010px" height="70px">
+
+                        <div id="countdown1" align="center" style="font-size:xx-large;color:blueviolet;"></div>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="tg-yw4l" rowspan="6"></td>
+                    <td class="tg-yw4l" colspan="5" rowspan="3">
+                        <div class="container">
+                            <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-7" id="dinamico" style="z-index:3">
+
+                                </div>
+                                <div class="col-sm-3"></div>
                             </div>
-                            <div class="col-sm-3"></div>
+                            <div class="row CONTROLES">
+                                <div class="col-sm-12"></div>
+                            </div>
                         </div>
-                        <div class="row CONTROLES">
-                            <div class="col-sm-12"></div>
+                    </td>
+                    <td class="tg-yw4l"></td>
+                    <td class="tg-yw4l" style="text-align:right;height:70px;width:auto"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p style="font-size:xx-large;color:blueviolet;">SCORE</p>
+                        <div id="score" style="font-size:xx-large;text-align:right;color:blueviolet;">0</div>
+                    </td>
+                    <td class="tg-yw4l" rowspan="6"></td>
+                </tr>
+                <tr>
+                    <td class="tg-yw4l" colspan="2" rowspan="5">
+                        <input id="empezarpartida" class="btn btn-success btn-lg" type="button" value="START GAME" />
+                        <hr />
+                        <input id="multijugador" class="btn .btn-primary btn-lg" type="button" value="MultiPlayer" />
+                        <hr />
+                        <input id="ranking" class="btn .btn-primary btn-lg" type="button" value="Ranking" />
+                        <hr />
+                        <input id="inciosesion" class="btn .btn-primary btn-lg" type="button" value="Iniciar Sesion" />
+                    </td>
+                </tr>
+                <tr><td class="tg-rg0h" colspan="5" align="center" style="font-size:xx-large;color:blueviolet;">MEDICINAS</td></tr>
+                <tr>
+                    <td class="tg-rg0h" colspan="5" style="text-align:center"></td>
+                </tr>
+                <tr>
+
+                    <td class="tg-yw4l" style="z-index:inherit" align="center">
+                        <img src="~/Imagenes/masok.jpg" id="mas1" />
+                    </td>
+                    <td class="tg-yw4l" style="z-index:inherit" align="center">
+                        <img src="~/Imagenes/masok.jpg" id="mas2"/>
+                    </td>
+                    <td class="tg-yw4l" style="z-index:inherit" align="center">
+                        <img src="~/Imagenes/masok.jpg" id="mas3" />
+                    </td>
+                    <td class="tg-yw4l" style="z-index:inherit" align="center">
+                        <img src="~/Imagenes/masok.jpg" id="mas4"/>
+                    </td>
+                    <td class="tg-yw4l"></td>
+
+                </tr>
+                <tr class="table-bordered">
+                    <td class="tg-yw4l"></td>
+                    <td class="tg-yw4l" id="medicina1">
+                        <div id="draggable" class="ui-widget-content ui-draggable ui-draggable-handle" style="z-index: 4; position: relative;">
+                            <p>MEC</p>
                         </div>
-                    </div>
-                </td>
-                <td class="tg-yw4l"></td>
-                <td class="tg-yw4l" style="text-align:right;height:70px;width:auto">
-            <tr>
-                <td></td>
-                <td>
-                   <p style="font-size:xx-large;color:blueviolet;">SCORE</p>                    
-                    <div id="score" style="font-size:xx-large;text-align:right;color:blueviolet;">0</div>
-                </td>
-            <td class="tg-yw4l" rowspan="6"></td>
-        </tr>
-        <tr>
-            <td class="tg-yw4l" colspan="2" rowspan="5"></td>
-        </tr>
-        <tr></tr>
-        <tr>
-            <td class="tg-rg0h" colspan="5" style="text-align:center">MEDICINAS</td>
-        </tr>
-        <tr>
+                    </td>
+                    <td class="tg-yw4l" id="medicina2">
+                        <div id="draggable2" class="ui-widget-content ui-draggable ui-draggable-handle" style="z-index: 4; position: relative;">
+                            <p>MEC</p>
+                        </div>
+                    </td>
+                    <td class="tg-yw4l" id="medicina3">
+                        <div id="draggable3" class="ui-widget-content ui-draggable ui-draggable-handle" style="z-index: 4; position: relative;">
+                            <p>MEC</p>
+                        </div>
+                    </td>
+                    <td class="tg-yw4l" id="medicina4">
+                        <div id="draggable4" class="ui-widget-content ui-draggable ui-draggable-handle" style="z-index: 4; position: relative;">
+                            <p>MEC</p>
+                        </div>
+                    </td>
+                    <td class="tg-yw4l"></td>
 
-            <td class="tg-yw4l">mas1</td>
-            <td class="tg-yw4l">mas2</td>
-            <td class="tg-yw4l">mas3</td>
-            <td class="tg-yw4l">mas4</td>
-            <td class="tg-yw4l"></td>
-
-        </tr>
-        <tr class="table-bordered">
-            <td class="tg-yw4l">
-
-            </td>
-            <td class="tg-yw4l" id="medicina1">
-                <div id="draggable" class="ui-widget-content" style="z-index:4">
-                    <p>MEC</p>
-                </div>
-            </td>
-            <td class="tg-yw4l" id="medicina2">
-                <div id="draggable2" class="ui-widget-content" style="z-index:4">
-                    <p>MEC</p>
-                </div>
-            </td>
-            <td class="tg-yw4l" id="medicina3">
-                <div id="draggable3" class="ui-widget-content" style="z-index:4">
-                    <p>MEC</p>
-                </div>
-            </td>
-            <td class="tg-yw4l" id="medicina4">
-                <div id="draggable4" class="ui-widget-content" style="z-index:4">
-                    <p>MEC</p>
-                </div>
-            </td>
-
-        </tr>
-        </tbody>
-    </table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -436,4 +462,24 @@
                     }
                 </ul>
             }
+        </div>*@
+    @*<div id="dinamico" style="z-index:-1">
+            <div id="draggable" class="ui-widget-content" style="z-index:2">
+                <p>MEC</p>
+            </div>
+        </div>*@
+
+    @*<div class="container">
+            <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7" id="dinamico" style="z-index:3">
+                    <div id="draggable" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row CONTROLES">
+                <div class="col-sm-12"></div>
+            </div>
         </div>*@
